@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
 class Form extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       name: '',
       date: '',
       time: '',
-      numGuests: 0
+      number: Number(0)
     }
   }
 
@@ -20,7 +20,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state)
+    this.props.addReservation(this.state)
   }
 
   render() {
@@ -29,7 +29,7 @@ class Form extends Component {
         <input name='name' type='text' value={this.state.name} placeholder='Name' onChange={this.handleChange}/>
         <input name='date' type='text' value={this.state.date} placeholder='Date (mm/dd)' onChange={this.handleChange}/>
         <input name='time' type='text' value={this.state.time} placeholder='Time' onChange={this.handleChange}/>
-        <input name='numGuests' type='number' value={this.state.numGuests} placeholder='Number of guests' onChange={this.handleChange}/>
+        <input name='number' type='number' value={this.state.numGuests} placeholder='Number of guests' onChange={this.handleChange}/>
         <button>Make Reservation</button>
       </form>
     )
