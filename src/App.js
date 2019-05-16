@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from './Form'
+import ReservationsContainer from './ReservationsContainer'
 
 class App extends Component {
   constructor() {
@@ -27,9 +28,11 @@ class App extends Component {
     const url = 'http://localhost:3001/api/v1/reservations'
     const options = {
       method: 'POST',
-      body: JSON.stringify(reservation),
+      body: newReservation,
+      // body: JSON.stringify({...reservation, number: parseFloat(reservation.number)}),
       headers: {'Content-Type': 'applicaton/json'}
     }
+    console.log(options)
     fetch(url, options)
       .then(response => response.json())
       .then(results => console.log(results))
@@ -44,7 +47,7 @@ class App extends Component {
         <Form addReservation={this.addReservation}/>
         </div>
         <div className='resy-container'>
-          
+          <ReservationsContainer reservations={this.state.reservations}/>
         </div>
       </div>
     )
