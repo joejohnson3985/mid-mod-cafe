@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Form.css'
 
 class Form extends Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class Form extends Component {
       name: '',
       date: '',
       time: '',
-      number: Number(0)
+      number: 0
     }
   }
 

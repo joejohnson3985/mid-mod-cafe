@@ -22,17 +22,13 @@ class App extends Component {
       .then(results => this.setState({reservations: results}))
   }
 
-  addReservation = (reservation) => {
-    const newReservation = {...reservation, number: Number(reservation.number)}
-    console.log(newReservation)
+  addReservation = ({ name, date, time, number }) => {
     const url = 'http://localhost:3001/api/v1/reservations'
     const options = {
       method: 'POST',
-      body: newReservation,
-      // body: JSON.stringify({...reservation, number: parseFloat(reservation.number)}),
+      body: JSON.stringify({ name, date, time, number }),
       headers: {'Content-Type': 'applicaton/json'}
     }
-    console.log(options)
     fetch(url, options)
       .then(response => response.json())
       .then(results => console.log(results))

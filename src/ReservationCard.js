@@ -7,7 +7,7 @@ const ReservationCard = ({reservation}) => {
 
   return(
     <div className='card'>
-      <h4>{name}</h4>
+      <h3>{name}</h3>
       <p>{date}</p>
       <p>{time}</p>
       <p>Number of guests:{number}</p>
